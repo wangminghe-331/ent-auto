@@ -95,9 +95,9 @@
 <div class="app">
   <aside class="side">
     <div class="brand"><span class="dot">娱</span>娱乐自动台</div>
-    <div class="live"><span class="pulse"></span><span id="liveTxt">自动监控中 · 每小时</span></div>
+    <div class="live"><span class="pulse"></span><span id="liveTxt">自动监控中 · 每日三班</span></div>
     <button class="nav-btn active" data-tab="hot"><span id="ic-hot"></span>热点</button>
-    <button class="nav-btn" data-tab="post"><span id="ic-post"></span>图文</button>
+    <button class="nav-btn" data-tab="post"><span id="ic-post"></span>文案</button>
     <span class="spacer"></span>
   </aside>
   <main class="main">
@@ -108,7 +108,7 @@
     <!-- 修复C：预写骨架屏统计卡，JS不执行也能看到框架 -->
     <div class="stats" id="stats">
       <div class="stat"><div class="v">—</div><div class="k">本期热点</div></div>
-      <div class="stat"><div class="v">—</div><div class="k">图文创作</div></div>
+      <div class="stat"><div class="v">—</div><div class="k">文案创作</div></div>
       <div class="stat"><div class="v">—</div><div class="k">运行轮次</div></div>
       <div class="stat"><div class="v">—</div><div class="k">监控平台</div></div>
     </div>
@@ -122,7 +122,7 @@
     </section>
 
     <section data-panel="post" hidden>
-      <h2 class="sec"><span id="ic-post2"></span>图文创作（热点精选 · 文字+配图一体）</h2>
+      <h2 class="sec"><span id="ic-post2"></span>文案创作（热点精选 · 直接配文）</h2>
       <div id="postList"><div class="empty">⏳ 正在加载图文数据…</div></div>
     </section>
   </main>
@@ -178,7 +178,7 @@ function renderHot(){
 
 function renderPost(){
   var ps=(DATA.posts||[]).slice().reverse();
-  if(!ps.length){document.getElementById('postList').innerHTML='<div class="empty">暂无图文创作（下一轮自动化会基于热点精选生成）</div>';return;}
+  if(!ps.length){document.getElementById('postList').innerHTML='<div class="empty">暂无文案创作（下一轮自动化会基于热点精选生成）</div>';return;}
   document.getElementById('postList').innerHTML=ps.map(function(p){
     return '<div class="post-card"><div class="post-head">'
       +(p.platform?'<span class="chip p">'+esc(p.platform)+'</span>':'')
