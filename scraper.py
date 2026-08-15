@@ -196,7 +196,8 @@ def main():
                 "capturedAt": today,
             })
 
-    old_posts = (old or {}).get("posts", [])
+    old_posts = [p for p in (old or {}).get("posts", [])
+                 if "占位" not in (p.get("text") or "")]
     # 选 1-2 条高热度（或前两条）做图文
     candidates = sorted([h for h in hotspots if h["heat"] > 0], key=lambda x: -x["heat"])
     if not candidates:
