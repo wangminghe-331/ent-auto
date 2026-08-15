@@ -125,10 +125,16 @@ PLATFORMS = {
 
 # ---------------- 出文（LLM 或模板） ----------------
 def template_text(topic, platform):
+    tail = {
+        "微博": "你们刷到这条热搜了吗？评论区聊聊～",
+        "抖音": "这条是不是也被你刷到过？说说你的看法～",
+        "小红书": "有没有也在看这个的？一起来聊聊～",
+        "B站": "这东西你们看了吗？弹幕见～",
+    }.get(platform, "你们刷到了吗？评论区聊聊～")
     return (f"【{topic}】\n\n"
-            f"最近「{topic}」热度很高，不少人都在聊。\n"
-            f"三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n"
-            f"一句话文案：『{topic}，你怎么看？』评论区聊聊～")
+            f"「{topic}」这两天真的到处都在刷，一打开手机全是它。\n"
+            f"看了一圈，就一个感觉：它确实把人戳到了，不是那种硬炒出来的热度。\n"
+            f"{tail}")
 
 
 def llm_text(topic, platform):
@@ -137,9 +143,9 @@ def llm_text(topic, platform):
         return template_text(topic, platform)
     url = os.environ.get("LLM_API_URL") or "https://api.deepseek.com/chat/completions"
     model = os.environ.get("LLM_MODEL") or "deepseek-chat"
-    prompt = (f"你是一个社交媒体内容创作者。请基于以下热点话题，写一篇适合{platform}平台发布的图文笔记。"
-              f"要求：像真人笔记/短文，含吸引人的标题、切入角度、2-3个要点、一句可复用的文案。"
-              f"话题：{topic}。只输出正文，不要解释，控制在200字以内。")
+    prompt = (f"你是一个社交媒体内容创作者。请基于热点「{topic}」，直接写一篇适合{platform}平台发布的图文笔记正文。"
+              f"要求：像真人随手写的分享，口语、有温度、不要列要点、不要分点分析、不要解释写作思路，控制在200字以内。"
+              f"只输出正文文案本身。")
     body = {"model": model, "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.8, "max_tokens": 400}
     try:
