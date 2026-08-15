@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-15T23:33:45",
-  "build": "20260815-2333",
-  "cycle": 5,
+  "updatedAt": "2026-08-15T23:44:38",
+  "build": "20260815-2344",
+  "cycle": 6,
   "driver": "GitHub Actions 云端定时",
   "hotspots": [
     {
@@ -70,7 +70,7 @@
     {
       "id": "抖2026-08-15-08",
       "platform": "抖音",
-      "topic": "童年动画三巨头集体在抖音写信",
+      "topic": "豆包进化到能学我唱歌了",
       "heat": 0,
       "source": "",
       "note": "#抖音 热点",
@@ -97,7 +97,7 @@
     {
       "id": "抖2026-08-15-11",
       "platform": "抖音",
-      "topic": "豆包进化到能学我唱歌了",
+      "topic": "中方回应高市向靖国神社供奉祭祀费",
       "heat": 0,
       "source": "",
       "note": "#抖音 热点",
@@ -170,7 +170,7 @@
       "id": "B2026-08-15-19",
       "platform": "B站",
       "topic": "用MC还原《神的随波逐流》 【B萌应援】",
-      "heat": 2199607,
+      "heat": 2201053,
       "source": "",
       "note": "#B站 实时热榜第1位",
       "capturedAt": "2026-08-15"
@@ -179,7 +179,7 @@
       "id": "B2026-08-15-20",
       "platform": "B站",
       "topic": "WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯",
-      "heat": 8726118,
+      "heat": 8726385,
       "source": "",
       "note": "#B站 实时热榜第2位",
       "capturedAt": "2026-08-15"
@@ -188,7 +188,7 @@
       "id": "B2026-08-15-21",
       "platform": "B站",
       "topic": "河流地貌",
-      "heat": 4048816,
+      "heat": 4050733,
       "source": "",
       "note": "#B站 实时热榜第3位",
       "capturedAt": "2026-08-15"
@@ -197,7 +197,7 @@
       "id": "B2026-08-15-22",
       "platform": "B站",
       "topic": "我实现了我儿时的梦想",
-      "heat": 2539251,
+      "heat": 2541627,
       "source": "",
       "note": "#B站 实时热榜第4位",
       "capturedAt": "2026-08-15"
@@ -205,8 +205,8 @@
     {
       "id": "B2026-08-15-23",
       "platform": "B站",
-      "topic": "🐧当你打游戏时父母进你房间蹭空调🐧",
-      "heat": 6853751,
+      "topic": "琢磨个把月，用一张纸折出了奥黛塔",
+      "heat": 2791288,
       "source": "",
       "note": "#B站 实时热榜第5位",
       "capturedAt": "2026-08-15"
@@ -214,8 +214,8 @@
     {
       "id": "B2026-08-15-24",
       "platform": "B站",
-      "topic": "琢磨个把月，用一张纸折出了奥黛塔",
-      "heat": 2788672,
+      "topic": "🐧当你打游戏时父母进你房间蹭空调🐧",
+      "heat": 6855777,
       "source": "",
       "note": "#B站 实时热榜第6位",
       "capturedAt": "2026-08-15"
@@ -223,27 +223,11 @@
   ],
   "posts": [
     {
-      "id": "p-1786802041-B站",
-      "platform": "B站",
-      "topic": "《顽童戏老叟》",
-      "text": "【《顽童戏老叟》】\n\n最近「《顽童戏老叟》」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『《顽童戏老叟》，你怎么看？』评论区聊聊～",
-      "image": "https://image.pollinations.ai/prompt/%E3%80%8A%E9%A1%BD%E7%AB%A5%E6%88%8F%E8%80%81%E5%8F%9F%E3%80%8B%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=2041",
-      "at": "2026-08-15"
-    },
-    {
-      "id": "p-1786802041-B站",
-      "platform": "B站",
-      "topic": "WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯",
-      "text": "【WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯】\n\n最近「WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯，你怎么看？』评论区聊聊～",
-      "image": "https://image.pollinations.ai/prompt/WasteTheFallen%E4%B8%A8%E9%A6%96%E6%9B%9DPV%EF%BC%86%E5%AE%9E%E6%9C%BA%E6%BC%94%E7%A4%BA%EF%BC%9A%E5%87%9D%E8%A7%86%E6%B7%B1%E6%B8%8A%EF%BC%8C%E4%BA%BA%E6%80%A7%E6%B8%90%E6%B3%AF%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=2041",
-      "at": "2026-08-15"
-    },
-    {
       "id": "p-1786813036-B站",
       "platform": "B站",
       "topic": "《顽童戏老叟》",
       "text": "【《顽童戏老叟》】\n\n最近「《顽童戏老叟》」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『《顽童戏老叟》，你怎么看？』评论区聊聊～",
-      "image": "https://image.pollinations.ai/prompt/%E3%80%8A%E9%A1%BD%E7%AB%A5%E6%88%8F%E8%80%81%E5%8F%9F%E3%80%8B%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=13036",
+      "image": "",
       "at": "2026-08-15"
     },
     {
@@ -251,7 +235,7 @@
       "platform": "B站",
       "topic": "WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯",
       "text": "【WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯】\n\n最近「WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯，你怎么看？』评论区聊聊～",
-      "image": "https://image.pollinations.ai/prompt/WasteTheFallen%E4%B8%A8%E9%A6%96%E6%9B%9DPV%EF%BC%86%E5%AE%9E%E6%9C%BA%E6%BC%94%E7%A4%BA%EF%BC%9A%E5%87%9D%E8%A7%86%E6%B7%B1%E6%B8%8A%EF%BC%8C%E4%BA%BA%E6%80%A7%E6%B8%90%E6%B3%AF%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=13036",
+      "image": "",
       "at": "2026-08-15"
     },
     {
@@ -259,7 +243,7 @@
       "platform": "B站",
       "topic": "《顽童戏老叟》",
       "text": "【《顽童戏老叟》】\n\n最近「《顽童戏老叟》」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『《顽童戏老叟》，你怎么看？』评论区聊聊～",
-      "image": "https://image.pollinations.ai/prompt/%E3%80%8A%E9%A1%BD%E7%AB%A5%E6%88%8F%E8%80%81%E5%8F%9F%E3%80%8B%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=13162",
+      "image": "",
       "at": "2026-08-15"
     },
     {
@@ -267,7 +251,7 @@
       "platform": "B站",
       "topic": "WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯",
       "text": "【WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯】\n\n最近「WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯，你怎么看？』评论区聊聊～",
-      "image": "https://image.pollinations.ai/prompt/WasteTheFallen%E4%B8%A8%E9%A6%96%E6%9B%9DPV%EF%BC%86%E5%AE%9E%E6%9C%BA%E6%BC%94%E7%A4%BA%EF%BC%9A%E5%87%9D%E8%A7%86%E6%B7%B1%E6%B8%8A%EF%BC%8C%E4%BA%BA%E6%80%A7%E6%B8%90%E6%B3%AF%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=13162",
+      "image": "",
       "at": "2026-08-15"
     },
     {
@@ -275,7 +259,7 @@
       "platform": "B站",
       "topic": "WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯",
       "text": "【WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯】\n\n「WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯」这两天真的到处都在刷，一打开手机全是它。\n看了一圈，就一个感觉：它确实把人戳到了，不是那种硬炒出来的热度。\n这东西你们看了吗？弹幕见～",
-      "image": "https://image.pollinations.ai/prompt/WasteTheFallen%E4%B8%A8%E9%A6%96%E6%9B%9DPV%EF%BC%86%E5%AE%9E%E6%9C%BA%E6%BC%94%E7%A4%BA%EF%BC%9A%E5%87%9D%E8%A7%86%E6%B7%B1%E6%B8%8A%EF%BC%8C%E4%BA%BA%E6%80%A7%E6%B8%90%E6%B3%AF%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=36825",
+      "image": "",
       "at": "2026-08-15"
     },
     {
@@ -283,7 +267,23 @@
       "platform": "B站",
       "topic": "🐧当你打游戏时父母进你房间蹭空调🐧",
       "text": "【🐧当你打游戏时父母进你房间蹭空调🐧】\n\n「🐧当你打游戏时父母进你房间蹭空调🐧」这两天真的到处都在刷，一打开手机全是它。\n看了一圈，就一个感觉：它确实把人戳到了，不是那种硬炒出来的热度。\n这东西你们看了吗？弹幕见～",
-      "image": "https://image.pollinations.ai/prompt/%F0%9F%90%A7%E5%BD%93%E4%BD%A0%E6%89%93%E6%B8%B8%E6%88%8F%E6%97%B6%E7%88%B6%E6%AF%8D%E8%BF%9B%E4%BD%A0%E6%88%BF%E9%97%B4%E8%B9%AD%E7%A9%BA%E8%B0%83%F0%9F%90%A7%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=36825",
+      "image": "",
+      "at": "2026-08-15"
+    },
+    {
+      "id": "p-1786837478-B站",
+      "platform": "B站",
+      "topic": "WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯",
+      "text": "【WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯】\n\n「WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯」这两天真的到处都在刷，一打开手机全是它。\n看了一圈，就一个感觉：它确实把人戳到了，不是那种硬炒出来的热度。\n这东西你们看了吗？弹幕见～",
+      "image": "",
+      "at": "2026-08-15"
+    },
+    {
+      "id": "p-1786837478-B站",
+      "platform": "B站",
+      "topic": "🐧当你打游戏时父母进你房间蹭空调🐧",
+      "text": "【🐧当你打游戏时父母进你房间蹭空调🐧】\n\n「🐧当你打游戏时父母进你房间蹭空调🐧」这两天真的到处都在刷，一打开手机全是它。\n看了一圈，就一个感觉：它确实把人戳到了，不是那种硬炒出来的热度。\n这东西你们看了吗？弹幕见～",
+      "image": "",
       "at": "2026-08-15"
     }
   ]
