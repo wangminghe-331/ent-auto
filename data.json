@@ -1,0 +1,266 @@
+{
+  "updatedAt": "2026-08-15T21:54:01",
+  "build": "20260815-2154",
+  "cycle": 2,
+  "driver": "GitHub Actions 云端定时",
+  "hotspots": [
+    {
+      "id": "微2026-08-15-01",
+      "platform": "微博",
+      "topic": "谁杀死了驾校",
+      "heat": 0,
+      "source": "",
+      "note": "#微博 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "微2026-08-15-02",
+      "platform": "微博",
+      "topic": "汉奸石平参拜靖国神社",
+      "heat": 0,
+      "source": "",
+      "note": "#微博 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "微2026-08-15-03",
+      "platform": "微博",
+      "topic": "50秒看中国的绿色奇迹",
+      "heat": 0,
+      "source": "",
+      "note": "#微博 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "微2026-08-15-04",
+      "platform": "微博",
+      "topic": "披荆斩棘直播",
+      "heat": 0,
+      "source": "",
+      "note": "#微博 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "微2026-08-15-05",
+      "platform": "微博",
+      "topic": "胖东来 刑释人员",
+      "heat": 0,
+      "source": "",
+      "note": "#微博 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "微2026-08-15-06",
+      "platform": "微博",
+      "topic": "王俊凯演唱会",
+      "heat": 0,
+      "source": "",
+      "note": "#微博 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "抖2026-08-15-07",
+      "platform": "抖音",
+      "topic": "日本战败投降81周年",
+      "heat": 0,
+      "source": "",
+      "note": "#抖音 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "抖2026-08-15-08",
+      "platform": "抖音",
+      "topic": "苏超南通1:0镇江",
+      "heat": 0,
+      "source": "",
+      "note": "#抖音 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "抖2026-08-15-09",
+      "platform": "抖音",
+      "topic": "新一代通信网空天地海全覆盖",
+      "heat": 0,
+      "source": "",
+      "note": "#抖音 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "抖2026-08-15-10",
+      "platform": "抖音",
+      "topic": "河南贾鲁河川汇区段溃口完成合龙",
+      "heat": 0,
+      "source": "",
+      "note": "#抖音 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "抖2026-08-15-11",
+      "platform": "抖音",
+      "topic": "苏超南京0:1扬州",
+      "heat": 0,
+      "source": "",
+      "note": "#抖音 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "抖2026-08-15-12",
+      "platform": "抖音",
+      "topic": "七夕约会怎么穿",
+      "heat": 0,
+      "source": "",
+      "note": "#抖音 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "小2026-08-15-13",
+      "platform": "小红书",
+      "topic": "SEO工具",
+      "heat": 0,
+      "source": "",
+      "note": "#小红书 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "小2026-08-15-14",
+      "platform": "小红书",
+      "topic": "域名工具",
+      "heat": 0,
+      "source": "",
+      "note": "#小红书 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "小2026-08-15-15",
+      "platform": "小红书",
+      "topic": "网络工具",
+      "heat": 0,
+      "source": "",
+      "note": "#小红书 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "小2026-08-15-16",
+      "platform": "小红书",
+      "topic": "站长工具",
+      "heat": 0,
+      "source": "",
+      "note": "#小红书 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "小2026-08-15-17",
+      "platform": "小红书",
+      "topic": "图片处理",
+      "heat": 0,
+      "source": "",
+      "note": "#小红书 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "小2026-08-15-18",
+      "platform": "小红书",
+      "topic": "生成工具",
+      "heat": 0,
+      "source": "",
+      "note": "#小红书 热点",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "B2026-08-15-19",
+      "platform": "B站",
+      "topic": "用MC还原《神的随波逐流》 【B萌应援】",
+      "heat": 2124333,
+      "source": "",
+      "note": "#B站 实时热榜第1位",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "B2026-08-15-20",
+      "platform": "B站",
+      "topic": "《顽童戏老叟》",
+      "heat": 10666198,
+      "source": "",
+      "note": "#B站 实时热榜第2位",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "B2026-08-15-21",
+      "platform": "B站",
+      "topic": "🐧当你打游戏时父母进你房间蹭空调🐧",
+      "heat": 6692286,
+      "source": "",
+      "note": "#B站 实时热榜第3位",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "B2026-08-15-22",
+      "platform": "B站",
+      "topic": "河流地貌",
+      "heat": 3944767,
+      "source": "",
+      "note": "#B站 实时热榜第4位",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "B2026-08-15-23",
+      "platform": "B站",
+      "topic": "WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯",
+      "heat": 7731120,
+      "source": "",
+      "note": "#B站 实时热榜第5位",
+      "capturedAt": "2026-08-15"
+    },
+    {
+      "id": "B2026-08-15-24",
+      "platform": "B站",
+      "topic": "船新版本新宝岛！这个联动怎么说？",
+      "heat": 6253163,
+      "source": "",
+      "note": "#B站 实时热榜第6位",
+      "capturedAt": "2026-08-15"
+    }
+  ],
+  "posts": [
+    {
+      "id": "seed-1",
+      "platform": "抖音",
+      "topic": "示例：花山谜窟奇妙夜",
+      "text": "这是初始占位图文。首次云端运行（GitHub Actions 触发 scraper.py）后，会被真实热点与 LLM 生成的内容覆盖。",
+      "image": "https://image.pollinations.ai/prompt/cozy%20night%20travel%20scene%20lantern%20glow?width=1024&height=768&nologo=true&model=flux&seed=1",
+      "at": "2026-08-15"
+    },
+    {
+      "id": "p-1786801998-微博",
+      "platform": "微博",
+      "topic": "谁杀死了驾校",
+      "text": "【谁杀死了驾校】\n\n最近「谁杀死了驾校」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『谁杀死了驾校，你怎么看？』评论区聊聊～",
+      "image": "https://image.pollinations.ai/prompt/%E8%B0%81%E6%9D%80%E6%AD%BB%E4%BA%86%E9%A9%BE%E6%A0%A1%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=1998",
+      "at": "2026-08-15"
+    },
+    {
+      "id": "p-1786801998-微博",
+      "platform": "微博",
+      "topic": "汉奸石平参拜靖国神社",
+      "text": "【汉奸石平参拜靖国神社】\n\n最近「汉奸石平参拜靖国神社」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『汉奸石平参拜靖国神社，你怎么看？』评论区聊聊～",
+      "image": "https://image.pollinations.ai/prompt/%E6%B1%89%E5%A5%B8%E7%9F%B3%E5%B9%B3%E5%8F%82%E6%8B%9C%E9%9D%96%E5%9B%BD%E7%A5%9E%E7%A4%BE%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=1998",
+      "at": "2026-08-15"
+    },
+    {
+      "id": "p-1786802041-B站",
+      "platform": "B站",
+      "topic": "《顽童戏老叟》",
+      "text": "【《顽童戏老叟》】\n\n最近「《顽童戏老叟》」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『《顽童戏老叟》，你怎么看？』评论区聊聊～",
+      "image": "https://image.pollinations.ai/prompt/%E3%80%8A%E9%A1%BD%E7%AB%A5%E6%88%8F%E8%80%81%E5%8F%9F%E3%80%8B%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=2041",
+      "at": "2026-08-15"
+    },
+    {
+      "id": "p-1786802041-B站",
+      "platform": "B站",
+      "topic": "WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯",
+      "text": "【WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯】\n\n最近「WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯」热度很高，不少人都在聊。\n三个角度：① 它为什么突然火；② 背后值得关注的点；③ 你自己的看法。\n一句话文案：『WasteTheFallen丨首曝PV＆实机演示：凝视深渊，人性渐泯，你怎么看？』评论区聊聊～",
+      "image": "https://image.pollinations.ai/prompt/WasteTheFallen%E4%B8%A8%E9%A6%96%E6%9B%9DPV%EF%BC%86%E5%AE%9E%E6%9C%BA%E6%BC%94%E7%A4%BA%EF%BC%9A%E5%87%9D%E8%A7%86%E6%B7%B1%E6%B8%8A%EF%BC%8C%E4%BA%BA%E6%80%A7%E6%B8%90%E6%B3%AF%20%E6%97%85%E8%A1%8C%20%E7%94%9F%E6%B4%BB%20%E6%B0%9B%E5%9B%B4%E6%84%9F%20%E6%91%84%E5%BD%B1%20%E8%B4%A8%E6%84%9F?width=1024&height=768&nologo=1&model=flux&seed=2041",
+      "at": "2026-08-15"
+    }
+  ]
+}
