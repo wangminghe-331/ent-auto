@@ -2,15 +2,14 @@
 # -*- coding: utf-8 -*-
 """
 娱乐自动监控台 - 云端刷新脚本
-由 GitHub Actions 每小时触发：抓四平台热点 -> 选热点出图文 -> 写 data.json -> commit。
-完全不依赖本地电脑。出图用 Pollinations.ai（免费、无需 key，仅嵌 URL）；出文用 LLM API（key 走 Secret）。
+由 GitHub Actions 每日三班触发：抓四平台热点 -> 选热点出配文 -> 写 data.json -> commit。
+完全不依赖本地电脑。出文用 LLM API（key 走 Secret，无 key 走模板），不再配图。
 """
 import os
 import re
 import json
 import time
 import datetime
-import urllib.parse
 
 import requests
 from bs4 import BeautifulSoup
@@ -159,15 +158,6 @@ def llm_text(topic, platform):
     return template_text(topic, platform)
 
 
-# ---------------- 出图（Pollinations，免费，仅嵌 URL） ----------------
-def pollinations_image_url(prompt, seed=None):
-    p = urllib.parse.quote(prompt[:200])
-    params = {"width": 1024, "height": 768, "nologo": 1,
-              "model": "flux", "seed": seed if seed is not None else int(time.time()) % 100000}
-    q = urllib.parse.urlencode(params)
-    return f"https://image.pollinations.ai/prompt/{p}?{q}"
-
-
 # ---------------- 主流程 ----------------
 def load_old():
     try:
@@ -204,20 +194,22 @@ def main():
 
     old_posts = [p for p in (old or {}).get("posts", [])
                  if "占位" not in (p.get("text") or "")]
-    # 选 1-2 条高热度（或前两条）做图文
+    # 只保留文案，不再配图：清掉历史图文里的图片字段
+    for p in old_posts:
+        p["image"] = ""
+    # 选 1-2 条高热度（或前两条）做配文
     candidates = sorted([h for h in hotspots if h["heat"] > 0], key=lambda x: -x["heat"])
     if not candidates:
         candidates = hotspots[:2]
     new_posts = []
     for h in candidates[:2]:
         text = llm_text(h["topic"], h["platform"])
-        img = pollinations_image_url(h["topic"] + " 旅行 生活 氛围感 摄影 质感")
         new_posts.append({
             "id": f"p-{int(time.time())}-{h['platform']}",
             "platform": h["platform"],
             "topic": h["topic"],
             "text": text,
-            "image": img,
+            "image": "",
             "at": today,
         })
     final_posts = (old_posts + new_posts)[-8:]
