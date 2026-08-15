@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>娱乐自动监控台</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+<style>
+  :root{
+    --bg:#0f1117; --card:#171a23; --ink:#e9ecf2; --sub:#9aa3b2;
+    --line:#262b38; --accent:#7c6cff; --accent2:#ec4899;
+    --ok:#22c55e; --warn:#f59e0b; --bad:#ef4444;
+    --radius:16px; --safe:env(safe-area-inset-bottom);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg);color:var(--ink);min-height:100vh;min-height:100dvh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;}
+  input,select,textarea{font-size:16px;font-family:inherit}
+  button{font-family:inherit;cursor:pointer}
+  a{color:var(--accent);word-break:break-all}
+  .app{display:flex;min-height:100vh;min-height:100dvh}
+  .side{width:208px;flex:none;background:var(--card);border-right:1px solid var(--line);
+    padding:18px 12px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;margin-bottom:6px;padding:6px}
+  .brand .dot{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px}
+  .live{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--sub);padding:0 8px 12px}
+  .live .pulse{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:p 1.8s infinite}
+  @keyframes p{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+  @keyframes sk{0%,100%{opacity:.35}50%{opacity:.7}}
+  .nav-btn{display:flex;align-items:center;gap:10px;width:100%;border:none;background:transparent;
+    padding:11px 12px;border-radius:12px;color:var(--sub);font-size:15px;text-align:left;font-weight:600}
+  .nav-btn.active{background:rgba(124,108,255,.14);color:var(--accent)}
+  .side .spacer{flex:1}
+  .main{flex:1;min-width:0;padding:18px 22px 40px;max-width:1080px;margin:0 auto;
+    min-height:calc(100vh - 40px);min-height:calc(100dvh - 40px)}
+  /* ===== 移动端：彻底重写布局 ===== */
+  @media(max-width:768px){
+    .app{display:block;min-height:100vh;min-height:100dvh;overflow-x:hidden}
+    /* 侧栏强制固定底部，覆盖桌面端所有定位 */
+    .side{
+      position:fixed !important;top:auto !important;left:0 !important;right:0 !important;bottom:0 !important;
+      width:100% !important;height:auto !important;flex-direction:row !important;
+      border-right:none !important;border-top:1px solid var(--line);
+      padding:6px 4px calc(6px + var(--safe)) !important;z-index:9999 !important;
+      justify-content:space-around;background:var(--card)
+    }
+    .brand,.live,.side .spacer{display:none !important}
+    .nav-btn{flex-direction:column;gap:3px;font-size:11px;padding:7px 4px;border-radius:10px;flex:1}
+    /* 主内容区：用 margin-bottom 留出底部栏空间，确保有最小高度 */
+    .main{
+      padding:14px 13px;
+      margin-bottom:110px;
+      min-height:calc(100dvh - 60px);
+      display:block
+    }
+    /* 统计卡移动端 2 列 */
+    .stats{grid-template-columns:repeat(2,1fr) !important}
+  }
+  h2.sec{font-size:18px;margin:2px 0 14px;display:flex;align-items:center;gap:8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:16px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+  .stat{border:1px solid var(--line);border-radius:14px;padding:14px;background:linear-gradient(135deg,rgba(124,108,255,.10),rgba(236,72,153,.10));animation:sk 1.5s ease-in-out infinite}
+  .stat .v{font-size:22px;font-weight:800}
+  .stat .k{font-size:12px;color:var(--sub);margin-top:3px}
+  .item{display:flex;gap:12px;padding:13px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;align-items:flex-start;background:var(--card)}
+  .item .info{flex:1;min-width:0}
+  .item .info .t{font-weight:600;font-size:15px}
+  .item .info .m{font-size:12px;color:var(--sub);margin-top:4px;line-height:1.6}
+  .chip{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:7px;background:var(--bg);color:var(--sub);margin-right:5px}
+  .chip.p{background:rgba(124,108,255,.16);color:var(--accent)}
+  .chip.s{background:rgba(236,72,153,.16);color:var(--accent2)}
+  .heat-bar{height:7px;border-radius:4px;background:var(--bg);overflow:hidden;margin-top:8px}
+  .heat-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .post-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+  .post-head{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .post-text{white-space:pre-wrap;font-size:15px;line-height:1.85;margin-bottom:12px}
+  .post-img{width:100%;max-width:440px;border-radius:12px;display:block;background:var(--bg);margin-bottom:12px}
+  .btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:9px 13px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  .btn.sm{padding:6px 10px;font-size:12px}
+  .empty{color:var(--sub);font-size:14px;text-align:center;padding:26px}
+  .updated{font-size:12px;color:var(--sub);margin-left:auto}
+  .toast{position:fixed;left:50%;bottom:120px;transform:translateX(-50%);background:#2a2f3d;color:#fff;
+    padding:10px 18px;border-radius:24px;font-size:13px;z-index:99999;opacity:0;transition:.25s}
+  .toast.show{opacity:1}
+  .err-banner{text-align:center;padding:20px 16px;border:2px solid var(--bad);border-radius:14px;
+    background:rgba(239,68,68,.08);color:var(--bad);font-size:15px;font-weight:700;margin-bottom:16px;line-height:1.6}
+  svg{display:block}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="dot">娱</span>娱乐自动台</div>
+    <div class="live"><span class="pulse"></span><span id="liveTxt">自动监控中 · 每小时</span></div>
+    <button class="nav-btn active" data-tab="hot"><span id="ic-hot"></span>热点</button>
+    <button class="nav-btn" data-tab="post"><span id="ic-post"></span>图文</button>
+    <span class="spacer"></span>
+  </aside>
+  <main class="main">
+    <div style="display:flex;align-items:center;margin-bottom:14px">
+      <h2 class="sec" style="margin:0"><span id="ic-bell"></span>实时概览</h2>
+      <span class="updated" id="updated">加载中…</span>
+    </div>
+    <!-- 修复C：预写骨架屏统计卡，JS不执行也能看到框架 -->
+    <div class="stats" id="stats">
+      <div class="stat"><div class="v">—</div><div class="k">本期热点</div></div>
+      <div class="stat"><div class="v">—</div><div class="k">图文创作</div></div>
+      <div class="stat"><div class="v">—</div><div class="k">运行轮次</div></div>
+      <div class="stat"><div class="v">—</div><div class="k">监控平台</div></div>
+    </div>
+    <div id="banner"></div>
+
+    <section data-panel="hot">
+      <h2 class="sec"><span id="ic-hot2"></span>热点监控（微博·抖音·小红书·B站）</h2>
+      <div class="card" id="hotChart"></div>
+      <!-- 修复C：预写加载提示 -->
+      <div id="hotList"><div class="empty">⏳ 正在加载热点数据…</div></div>
+    </section>
+
+    <section data-panel="post" hidden>
+      <h2 class="sec"><span id="ic-post2"></span>图文创作（热点精选 · 文字+配图一体）</h2>
+      <div id="postList"><div class="empty">⏳ 正在加载图文数据…</div></div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function icon(name,size){size=size||18;
+  var s='fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+  var p={
+    hot:'<path d="M12 2c1 3 4 4 4 8a4 4 0 0 1-8 0c0-1 .5-2 1-2.5C9 9 12 7 12 2z"/>',
+    copy:'<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"/>',
+    bell:'<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>'
+  };
+  var f=(name==='hot')?'fill="currentColor" stroke="none"':'';
+  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" '+s+' '+f+'>'+p[name]+'</svg>';
+}
+['ic-hot','ic-hot2'].forEach(function(i){document.getElementById(i).innerHTML=icon('hot');});
+['ic-post','ic-post2'].forEach(function(i){document.getElementById(i).innerHTML=icon('copy');});
+document.getElementById('ic-bell').innerHTML=icon('bell',20);
+
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
+var wan=function(n){n=+n||0;return n>=10000?(n/10000).toFixed(1)+'万':String(n);};
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1600);}
+
+var DATA={hotspots:[],posts:[]};
+var _loaded=false;
+
+function render(){
+  var d=DATA;
+  _loaded=true;
+  document.getElementById('updated').textContent='更新于 '+(d.updatedAt?d.updatedAt.replace('T',' ').slice(0,16):'—')+(d.build?' · 构建 '+d.build:'');
+  document.getElementById('stats').innerHTML=
+    stat((d.hotspots||[]).length,'本期热点')+stat((d.posts||[]).length,'图文创作')
+    +stat((d.cycle||0),'运行轮次')+stat(4,'监控平台');
+  renderHot();renderPost();
+}
+function stat(v,k){return '<div class="stat"><div class="v">'+v+'</div><div class="k">'+k+'</div></div>';}
+
+function renderHot(){
+  var hs=(DATA.hotspots||[]).slice().sort(function(a,b){return (b.heat||0)-(a.heat||0);});
+  if(!hs.length){document.getElementById('hotList').innerHTML='<div class="empty">暂无热点数据</div>';document.getElementById('hotChart').innerHTML='';return;}
+  var max=Math.max.apply(null,hs.map(function(h){return h.heat||0}).concat([1]));
+  document.getElementById('hotChart').innerHTML='<div style="font-weight:700;font-size:13px;margin-bottom:8px">热度 Top '+Math.min(6,hs.length)+'</div>'
+    +hs.slice(0,6).map(function(h){return '<div style="margin-bottom:7px"><div style="display:flex;justify-content:space-between;font-size:12px"><span>'+esc(h.topic)+' <span class="chip p">'+esc(h.platform)+'</span></span><span style="color:var(--sub)">'+wan(h.heat)+'</span></div><div class="heat-bar"><i style="width:'+Math.round((h.heat||0)/max*100)+'%"></i></div></div>';}).join('');
+  document.getElementById('hotList').innerHTML=hs.map(function(h){
+    return '<div class="item"><div class="info"><div class="t">'+esc(h.topic)+' <span class="chip p">'+esc(h.platform)+'</span></div>'
+      +'<div class="m">热度 '+wan(h.heat)+' · 抓取 '+esc(h.capturedAt||'')+'<br>'+esc(h.note||'')
+      +(h.source?' · <a href="'+esc(h.source)+'" target="_blank" rel="noopener">来源</a>':'')+'</div></div></div>';
+  }).join('');
+}
+
+function renderPost(){
+  var ps=(DATA.posts||[]).slice().reverse();
+  if(!ps.length){document.getElementById('postList').innerHTML='<div class="empty">暂无图文创作（下一轮自动化会基于热点精选生成）</div>';return;}
+  document.getElementById('postList').innerHTML=ps.map(function(p){
+    return '<div class="post-card"><div class="post-head">'
+      +(p.platform?'<span class="chip p">'+esc(p.platform)+'</span>':'')
+      +(p.topic?'<span class="chip s">'+esc(p.topic)+'</span>':'')
+      +(p.at?'<span class="chip">'+esc(p.at)+'</span>':'')
+      +'</div>'
+      +'<div class="post-text">'+esc(p.text)+'</div>'
+      +(p.image?'<img class="post-img" src="'+esc(p.image)+'" alt="'+esc(p.topic||'')+'" loading="lazy" onerror="this.style.opacity=.25">':'')
+      +'<button class="btn ghost" data-copy="'+esc(p.text).replace(/"/g,'&quot;')+'">复制全文</button></div>';
+  }).join('');
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(b.getAttribute('data-copy'));toast('已复制');};});
+}
+
+/* 修复B：带超时的数据加载 + 可见错误态 */
+function load(){
+  var timedOut=false;
+  var timer=setTimeout(function(){
+    if(!_loaded){
+      timedOut=true;
+      showErr('⏱ 数据加载超时<br><span style="font-size:12px;font-weight:400;color:var(--sub)">请检查网络后刷新页面重试</span>');
+    }
+  },10000);
+
+  fetch('./data.json?t='+Date.now(),{cache:'no-store',headers:{'Cache-Control':'no-cache'}}).then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(function(j){
+    clearTimeout(timer);
+    if(timedOut) return; // 超时后不再处理迟到的响应
+    DATA=j;render();
+    document.getElementById('banner').innerHTML='';
+  }).catch(function(err){
+    clearTimeout(timer);
+    console.error('[ent] 数据加载失败:', err);
+    showErr('⚠ 数据加载失败<br><span style="font-size:12px;font-weight:400;color:var(--sub)">'+(err.message||'请检查网络后刷新页面重试')+'</span>');
+  });
+}
+
+function showErr(html){
+  var b=document.getElementById('banner');
+  b.innerHTML='<div class="err-banner">'+html+'</div>';
+  // 同时把统计卡区域也标红提醒
+  document.getElementById('stats').style.opacity='.4';
+}
+
+document.querySelectorAll('.nav-btn[data-tab]').forEach(function(b){b.onclick=function(){
+  document.querySelectorAll('.nav-btn[data-tab]').forEach(function(x){x.classList.remove('active');});
+  b.classList.add('active');var tab=b.getAttribute('data-tab');
+  document.querySelectorAll('[data-panel]').forEach(function(s){s.hidden=s.getAttribute('data-panel')!==tab;});
+};});
+
+load();
+setInterval(load,60000);
+</script>
+</body>
+</html>
