@@ -1,0 +1,40 @@
+name: 娱乐监控台-每日三次刷新
+
+on:
+  schedule:
+    # 北京时间 07:00 / 14:00 / 21:00 各跑一次（每 7 小时），UTC 对应 23:00(前一日)/06:00/13:00。
+    - cron: "0 23,6,13 * * *"
+  workflow_dispatch: {}   # 允许在 Actions 页面手动点 Run workflow 立即测试
+
+permissions:
+  contents: write        # 允许 workflow 把生成的 data.json 提交回仓库
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 配置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 抓取热点 + 生成图文
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_URL: ${{ secrets.LLM_API_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: python scraper.py
+
+      - name: 提交 data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git commit -m "auto refresh $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "no changes"
+          git push
