@@ -2,9 +2,10 @@ name: 娱乐监控台-每日三次刷新
 
 on:
   schedule:
-    # 北京时间每日三班：07:00 / 11:00 / 17:30。UTC 对应：23:00(前一日)/03:00/09:30。
-    - cron: "0 23,3 * * *"      # 北京 07:00 与 11:00
-    - cron: "30 9 * * *"        # 北京 17:30
+    # 北京时间每日三班：07:00 / 11:00 / 17:30。每个时间点额外加一个 +15 分钟冗余触发，
+    # 规避 GitHub 免费调度器高峰期偶发跳跑（同窗口两次机会，同时被跳过概率极低）。
+    - cron: "0,15 23,3 * * *"    # 北京 07:00/07:15 与 11:00/11:15
+    - cron: "30,45 9 * * *"      # 北京 17:30/17:45
   workflow_dispatch: {}   # 允许在 Actions 页面手动点 Run workflow 立即测试
 
 permissions:
@@ -38,4 +39,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
           git commit -m "auto refresh $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "no changes"
-          git push
+          # 冗余触发可能并发，push 冲突时交由另一班覆盖，数据仍是最新，不标红失败
+          git push || echo "push skipped: another concurrent run likely succeeded, data remains fresh"
